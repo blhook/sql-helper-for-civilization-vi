@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\SQLite.3.13.0\build\net45\SQLite.props" Condition="Exists('..\packages\SQLite.3.13.0\build\net45\SQLite.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB763DE1-97D4-4C6C-940E-D2847B0B378B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SQLHelper_Civ</RootNamespace>
+    <AssemblyName>SQLHelper_Civ</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green, Version=1.1.12.351, Culture=neutral, PublicKeyToken=a84b7dcfb1391f7f, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.12\lib\net45\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=1.1.12.351, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.12\lib\net45\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=1.1.12.351, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.12\lib\net45\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.e_sqlite3, Version=1.1.12.351, Culture=neutral, PublicKeyToken=9c301db686d0bd12, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.e_sqlite3.net45.1.1.12\lib\net45\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.110.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.110.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.110.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ConfigurationUpdateQueries.cs" />
+    <Compile Include="Configuration\ConfigurationUpdates.cs" />
+    <Compile Include="Configuration\Credits.cs" />
+    <Compile Include="Configuration\DataPointAggregateQueries.cs" />
+    <Compile Include="Configuration\DataPointAggregateScopeQueries.cs" />
+    <Compile Include="Configuration\DataPointAggregateScopes.cs" />
+    <Compile Include="Configuration\DataPointAggregateUpdates.cs" />
+    <Compile Include="Configuration\Defeats.cs" />
+    <Compile Include="Configuration\Difficulties.cs" />
+    <Compile Include="Configuration\DomainOverrideQueries.cs" />
+    <Compile Include="Configuration\DomainOverrides.cs" />
+    <Compile Include="Configuration\DomainRangeQueries.cs" />
+    <Compile Include="Configuration\DomainRanges.cs" />
+    <Compile Include="Configuration\DomainValueFilterQueries.cs" />
+    <Compile Include="Configuration\DomainValueFilters.cs" />
+    <Compile Include="Configuration\DomainValueQueries.cs" />
+    <Compile Include="Configuration\DomainValues.cs" />
+    <Compile Include="Configuration\DomainValueUnionQueries.cs" />
+    <Compile Include="Configuration\DomainValueUnions.cs" />
+    <Compile Include="Configuration\DuplicateCivilizations.cs" />
+    <Compile Include="Configuration\DuplicateLeaders.cs" />
+    <Compile Include="Configuration\Eras.cs" />
+    <Compile Include="Configuration\GameCores.cs" />
+    <Compile Include="Configuration\GameSpeeds.cs" />
+    <Compile Include="Configuration\GraphQueries.cs" />
+    <Compile Include="Configuration\Graphs.cs" />
+    <Compile Include="Configuration\Highlights.cs" />
+    <Compile Include="Configuration\InputActionDefaultGestures.cs" />
+    <Compile Include="Configuration\InputActions.cs" />
+    <Compile Include="Configuration\InputCategories.cs" />
+    <Compile Include="Configuration\InputContexts.cs" />
+    <Compile Include="Configuration\MapDomainOverrides.cs" />
+    <Compile Include="Configuration\MapLeaders.cs" />
+    <Compile Include="Configuration\Maps.cs" />
+    <Compile Include="Configuration\MapSizes.cs" />
+    <Compile Include="Configuration\MapSupportedValues.cs" />
+    <Compile Include="Configuration\MapUnSupportedValues.cs" />
+    <Compile Include="Configuration\ParameterCriteria.cs" />
+    <Compile Include="Configuration\ParameterCriteriaQueries.cs" />
+    <Compile Include="Configuration\ParameterDependencies.cs" />
+    <Compile Include="Configuration\ParameterDependencyQueries.cs" />
+    <Compile Include="Configuration\ParameterQueries.cs" />
+    <Compile Include="Configuration\ParameterQueryCriteria.cs" />
+    <Compile Include="Configuration\ParameterQueryDependencies.cs" />
+    <Compile Include="Configuration\Parameters.cs" />
+    <Compile Include="Configuration\PlayerItems.cs" />
+    <Compile Include="Configuration\Players.cs" />
+    <Compile Include="Configuration\Queries.cs" />
+    <Compile Include="Configuration\QueryCriteria.cs" />
+    <Compile Include="Configuration\QueryParameters.cs" />
+    <Compile Include="Configuration\ReportColumns.cs" />
+    <Compile Include="Configuration\ReportQueries.cs" />
+    <Compile Include="Configuration\Reports.cs" />
+    <Compile Include="Configuration\RulesetDomainOverrides.cs" />
+    <Compile Include="Configuration\Rulesets.cs" />
+    <Compile Include="Configuration\RulesetSupportedValues.cs" />
+    <Compile Include="Configuration\RulesetTypes.cs" />
+    <Compile Include="Configuration\RulesetUnSupportedValues.cs" />
+    <Compile Include="Configuration\StatisticCategories.cs" />
+    <Compile Include="Configuration\Statistics.cs" />
+    <Compile Include="Configuration\TurnPhases.cs" />
+    <Compile Include="Configuration\TurnTimers.cs" />
+    <Compile Include="Configuration\Victories.cs" />
+    <Compile Include="DBConfig\BaseDBContext.cs" />
+    <Compile Include="DBConfig\ConfigurationDB.cs" />
+    <Compile Include="DBConfig\GameplayDB.cs" />
+    <Compile Include="DBConfig\LocalizationDB.cs" />
+    <Compile Include="Extensions_Helpers\Classes.cs" />
+    <Compile Include="Extensions_Helpers\Extensions.cs" />
+    <Compile Include="Extensions_Helpers\FilterDataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Extensions_Helpers\GlobalsAndStatics.cs" />
+    <Compile Include="Extensions_Helpers\Helpers.cs" />
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDatabaseSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatabaseSelector.Designer.cs">
+      <DependentUpon>frmDatabaseSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFindReferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFindReferences.Designer.cs">
+      <DependentUpon>frmFindReferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOutputSQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOutputSQL.Designer.cs">
+      <DependentUpon>frmOutputSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gameplay\AgendaTraits.cs" />
+    <Compile Include="Gameplay\BuildingPrereqs.cs" />
+    <Compile Include="Gameplay\BuildingReplaces.cs" />
+    <Compile Include="Gameplay\Building_RequiredFeatures.cs" />
+    <Compile Include="Gameplay\Building_ValidFeatures.cs" />
+    <Compile Include="Gameplay\Building_ValidTerrains.cs" />
+    <Compile Include="Gameplay\CivicModifiers.cs" />
+    <Compile Include="Gameplay\CivicPrereqs.cs" />
+    <Compile Include="Gameplay\CivilizationTraits.cs" />
+    <Compile Include="Gameplay\DiplomaticTriggers_RequiredStates.cs" />
+    <Compile Include="Gameplay\DistrictModifiers.cs" />
+    <Compile Include="Gameplay\DistrictReplaces.cs" />
+    <Compile Include="Gameplay\District_Adjacencies.cs" />
+    <Compile Include="Gameplay\District_RequiredFeatures.cs" />
+    <Compile Include="Gameplay\District_ValidTerrains.cs" />
+    <Compile Include="Gameplay\DuplicateCivilizations.cs" />
+    <Compile Include="Gameplay\DuplicateLeaders.cs" />
+    <Compile Include="Gameplay\ExcludedAdjacencies.cs" />
+    <Compile Include="Gameplay\ExcludedDistricts.cs" />
+    <Compile Include="Gameplay\ExcludedGreatPersonClasses.cs" />
+    <Compile Include="Gameplay\ExclusiveAgendas.cs" />
+    <Compile Include="Gameplay\Feature_AdjacentFeatures.cs" />
+    <Compile Include="Gameplay\Feature_AdjacentTerrains.cs" />
+    <Compile Include="Gameplay\Feature_NotAdjacentTerrains.cs" />
+    <Compile Include="Gameplay\Feature_NotNearFeatures.cs" />
+    <Compile Include="Gameplay\Feature_ValidTerrains.cs" />
+    <Compile Include="Gameplay\GovernorPromotionPrereqs.cs" />
+    <Compile Include="Gameplay\GovernorPromotionSets.cs" />
+    <Compile Include="Gameplay\GovernorReplaces.cs" />
+    <Compile Include="Gameplay\GreatWork_ValidSubTypes.cs" />
+    <Compile Include="Gameplay\HistoricalAgendas.cs" />
+    <Compile Include="Gameplay\Improvement_Adjacencies.cs" />
+    <Compile Include="Gameplay\Improvement_InvalidAdjacentFeatures.cs" />
+    <Compile Include="Gameplay\Improvement_ValidAdjacentResources.cs" />
+    <Compile Include="Gameplay\Improvement_ValidAdjacentTerrains.cs" />
+    <Compile Include="Gameplay\Improvement_ValidBuildUnits.cs" />
+    <Compile Include="Gameplay\Improvement_ValidFeatures.cs" />
+    <Compile Include="Gameplay\LeaderTraits.cs" />
+    <Compile Include="Gameplay\MutuallyExclusiveBuildings.cs" />
+    <Compile Include="Gameplay\MutuallyExclusiveDistricts.cs" />
+    <Compile Include="Gameplay\NamedDesertCivilizations.cs" />
+    <Compile Include="Gameplay\NamedMountainCivilizations.cs" />
+    <Compile Include="Gameplay\NamedRiverCivilizations.cs" />
+    <Compile Include="Gameplay\NamedVolcanoCivilizations.cs" />
+    <Compile Include="Gameplay\Policy_GovernmentExclusives_XP2.cs" />
+    <Compile Include="Gameplay\RandomAgendaCivicTags.cs" />
+    <Compile Include="Gameplay\RandomAgendaEraTags.cs" />
+    <Compile Include="Gameplay\RandomEvent_PillagedImprovements.cs" />
+    <Compile Include="Gameplay\RandomEvent_Terrains.cs" />
+    <Compile Include="Gameplay\RequirementSetRequirements.cs" />
+    <Compile Include="Gameplay\Resource_ValidFeatures.cs" />
+    <Compile Include="Gameplay\Resource_ValidTerrains.cs" />
+    <Compile Include="Gameplay\Route_ValidBuildUnits.cs" />
+    <Compile Include="Gameplay\StartingBoostedCivics.cs" />
+    <Compile Include="Gameplay\StartingBoostedTechnologies.cs" />
+    <Compile Include="Gameplay\StartingCivics.cs" />
+    <Compile Include="Gameplay\Strategy_Priorities.cs" />
+    <Compile Include="Gameplay\TechnologyPrereqs.cs" />
+    <Compile Include="Gameplay\TerrainClass_Terrains.cs" />
+    <Compile Include="Gameplay\TraitModifiers.cs" />
+    <Compile Include="Gameplay\TypeTags.cs" />
+    <Compile Include="Gameplay\UnitAbilityModifiers.cs" />
+    <Compile Include="Gameplay\UnitAiInfos.cs" />
+    <Compile Include="Gameplay\UnitCaptures.cs" />
+    <Compile Include="Gameplay\UnitPromotionPrereqs.cs" />
+    <Compile Include="Gameplay\UnitReplaces.cs" />
+    <Compile Include="Gameplay\UnitUpgrades.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SQLHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLHelper.Designer.cs">
+      <DependentUpon>SQLHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gameplay\Adjacency_YieldChanges.cs" />
+    <Compile Include="Gameplay\AgendaPreferredLeaders.cs" />
+    <Compile Include="Gameplay\Agendas.cs" />
+    <Compile Include="Gameplay\AgendaTags.cs" />
+    <Compile Include="Gameplay\AiBuildSpecializations.cs" />
+    <Compile Include="Gameplay\AiEvents.cs" />
+    <Compile Include="Gameplay\AiFavoredItems.cs" />
+    <Compile Include="Gameplay\AiLists.cs" />
+    <Compile Include="Gameplay\AiListTypes.cs" />
+    <Compile Include="Gameplay\AiOperationDefs.cs" />
+    <Compile Include="Gameplay\AiOperationLimits.cs" />
+    <Compile Include="Gameplay\AiOperationLists.cs" />
+    <Compile Include="Gameplay\AiOperationTeams.cs" />
+    <Compile Include="Gameplay\AiOperationTypes.cs" />
+    <Compile Include="Gameplay\AiScoutUses.cs" />
+    <Compile Include="Gameplay\AiTeams.cs" />
+    <Compile Include="Gameplay\AllianceEffects.cs" />
+    <Compile Include="Gameplay\Alliances.cs" />
+    <Compile Include="Gameplay\AllowedMoves.cs" />
+    <Compile Include="Gameplay\AllowedOperations.cs" />
+    <Compile Include="Gameplay\AppealHousingChanges.cs" />
+    <Compile Include="Gameplay\BarbarianAttackForces.cs" />
+    <Compile Include="Gameplay\BarbarianTribeForces.cs" />
+    <Compile Include="Gameplay\BarbarianTribeNames.cs" />
+    <Compile Include="Gameplay\BarbarianTribes.cs" />
+    <Compile Include="Gameplay\BehaviorTreeNodes.cs" />
+    <Compile Include="Gameplay\BehaviorTrees.cs" />
+    <Compile Include="Gameplay\BeliefClasses.cs" />
+    <Compile Include="Gameplay\BeliefModifiers.cs" />
+    <Compile Include="Gameplay\Beliefs.cs" />
+    <Compile Include="Gameplay\BonusMinorStartingUnits.cs" />
+    <Compile Include="Gameplay\BoostHandlers.cs" />
+    <Compile Include="Gameplay\BoostNames.cs" />
+    <Compile Include="Gameplay\Boosts.cs" />
+    <Compile Include="Gameplay\BuildingModifiers.cs" />
+    <Compile Include="Gameplay\Buildings.cs" />
+    <Compile Include="Gameplay\Buildings_XP2.cs" />
+    <Compile Include="Gameplay\Building_GreatPersonPoints.cs" />
+    <Compile Include="Gameplay\Building_GreatWorks.cs" />
+    <Compile Include="Gameplay\Building_ResourceCosts.cs" />
+    <Compile Include="Gameplay\Building_TourismBombs_XP2.cs" />
+    <Compile Include="Gameplay\Building_YieldChanges.cs" />
+    <Compile Include="Gameplay\Building_YieldChangesBonusWithPower.cs" />
+    <Compile Include="Gameplay\Building_YieldDistrictCopies.cs" />
+    <Compile Include="Gameplay\Building_YieldsPerEra.cs" />
+    <Compile Include="Gameplay\Calendars.cs" />
+    <Compile Include="Gameplay\CityEvents.cs" />
+    <Compile Include="Gameplay\CityNames.cs" />
+    <Compile Include="Gameplay\CivicQuotes.cs" />
+    <Compile Include="Gameplay\CivicRandomCosts.cs" />
+    <Compile Include="Gameplay\Civics.cs" />
+    <Compile Include="Gameplay\Civics_XP2.cs" />
+    <Compile Include="Gameplay\CivilizationCitizenNames.cs" />
+    <Compile Include="Gameplay\CivilizationInfo.cs" />
+    <Compile Include="Gameplay\CivilizationLeaders.cs" />
+    <Compile Include="Gameplay\CivilizationLevels.cs" />
+    <Compile Include="Gameplay\Civilizations.cs" />
+    <Compile Include="Gameplay\CivilopediaPageChapterHeaders.cs" />
+    <Compile Include="Gameplay\CivilopediaPageChapterParagraphs.cs" />
+    <Compile Include="Gameplay\CivilopediaPageExcludes.cs" />
+    <Compile Include="Gameplay\CivilopediaPageGroupExcludes.cs" />
+    <Compile Include="Gameplay\CivilopediaPageGroupQueries.cs" />
+    <Compile Include="Gameplay\CivilopediaPageGroups.cs" />
+    <Compile Include="Gameplay\CivilopediaPageLayoutChapters.cs" />
+    <Compile Include="Gameplay\CivilopediaPageLayouts.cs" />
+    <Compile Include="Gameplay\CivilopediaPageQueries.cs" />
+    <Compile Include="Gameplay\CivilopediaPages.cs" />
+    <Compile Include="Gameplay\CivilopediaPageSearchTermQueries.cs" />
+    <Compile Include="Gameplay\CivilopediaPageSearchTerms.cs" />
+    <Compile Include="Gameplay\CivilopediaSectionExcludes.cs" />
+    <Compile Include="Gameplay\CivilopediaSections.cs" />
+    <Compile Include="Gameplay\CoastalLowlands.cs" />
+    <Compile Include="Gameplay\Colors.cs" />
+    <Compile Include="Gameplay\CommemorationModifiers.cs" />
+    <Compile Include="Gameplay\CommemorationTypes.cs" />
+    <Compile Include="Gameplay\ComplimentModifiers.cs" />
+    <Compile Include="Gameplay\CongressAiChanges.cs" />
+    <Compile Include="Gameplay\Continents.cs" />
+    <Compile Include="Gameplay\DataTypes.cs" />
+    <Compile Include="Gameplay\DealItems.cs" />
+    <Compile Include="Gameplay\Defeats.cs" />
+    <Compile Include="Gameplay\DeforestationEffects.cs" />
+    <Compile Include="Gameplay\DeforestationLevels.cs" />
+    <Compile Include="Gameplay\Difficulties.cs" />
+    <Compile Include="Gameplay\DiplomacyInfo.cs" />
+    <Compile Include="Gameplay\DiplomacyMoodTypes.cs" />
+    <Compile Include="Gameplay\DiplomacySelections.cs" />
+    <Compile Include="Gameplay\DiplomacyStatements.cs" />
+    <Compile Include="Gameplay\DiplomacyStatementSubTypes.cs" />
+    <Compile Include="Gameplay\DiplomacyStatementTypes.cs" />
+    <Compile Include="Gameplay\DiplomaticActions.cs" />
+    <Compile Include="Gameplay\DiplomaticActions_XP1.cs" />
+    <Compile Include="Gameplay\DiplomaticActions_XP2.cs" />
+    <Compile Include="Gameplay\DiplomaticStartStates.cs" />
+    <Compile Include="Gameplay\DiplomaticStateActions.cs" />
+    <Compile Include="Gameplay\DiplomaticStates.cs" />
+    <Compile Include="Gameplay\DiplomaticStateTransitions.cs" />
+    <Compile Include="Gameplay\DiplomaticTriggeredTransitions.cs" />
+    <Compile Include="Gameplay\DiplomaticTriggers.cs" />
+    <Compile Include="Gameplay\DiplomaticVisibilitySources.cs" />
+    <Compile Include="Gameplay\DiplomaticVisibilitySources_XP1.cs" />
+    <Compile Include="Gameplay\Discussions.cs" />
+    <Compile Include="Gameplay\Districts.cs" />
+    <Compile Include="Gameplay\Districts_XP2.cs" />
+    <Compile Include="Gameplay\District_BuildChargeProductions.cs" />
+    <Compile Include="Gameplay\District_CitizenGreatPersonPoints.cs" />
+    <Compile Include="Gameplay\District_CitizenYieldChanges.cs" />
+    <Compile Include="Gameplay\District_GreatPersonPoints.cs" />
+    <Compile Include="Gameplay\District_TradeRouteYields.cs" />
+    <Compile Include="Gameplay\DynamicModifiers.cs" />
+    <Compile Include="Gameplay\Emergencies_XP2.cs" />
+    <Compile Include="Gameplay\EmergencyAlliances.cs" />
+    <Compile Include="Gameplay\EmergencyBuffs.cs" />
+    <Compile Include="Gameplay\EmergencyGoalTexts.cs" />
+    <Compile Include="Gameplay\EmergencyRewards.cs" />
+    <Compile Include="Gameplay\EmergencyScoreSources.cs" />
+    <Compile Include="Gameplay\EmergencyTexts.cs" />
+    <Compile Include="Gameplay\Eras.cs" />
+    <Compile Include="Gameplay\Eras_XP1.cs" />
+    <Compile Include="Gameplay\Eras_XP2.cs" />
+    <Compile Include="Gameplay\EventPopupData.cs" />
+    <Compile Include="Gameplay\FavoredReligions.cs" />
+    <Compile Include="Gameplay\Features.cs" />
+    <Compile Include="Gameplay\Features_XP2.cs" />
+    <Compile Include="Gameplay\Feature_AdjacentYields.cs" />
+    <Compile Include="Gameplay\Feature_Floodplains.cs" />
+    <Compile Include="Gameplay\Feature_Removes.cs" />
+    <Compile Include="Gameplay\Feature_YieldChanges.cs" />
+    <Compile Include="Gameplay\Flavors.cs" />
+    <Compile Include="Gameplay\GameCapabilities.cs" />
+    <Compile Include="Gameplay\GameCapabilityDependencies.cs" />
+    <Compile Include="Gameplay\GameEffectArguments.cs" />
+    <Compile Include="Gameplay\GameEffects.cs" />
+    <Compile Include="Gameplay\GameModifiers.cs" />
+    <Compile Include="Gameplay\GameSpeeds.cs" />
+    <Compile Include="Gameplay\GameSpeed_Durations.cs" />
+    <Compile Include="Gameplay\GameSpeed_Scalings.cs" />
+    <Compile Include="Gameplay\GameSpeed_Turns.cs" />
+    <Compile Include="Gameplay\GlobalParameters.cs" />
+    <Compile Include="Gameplay\GoodyHuts.cs" />
+    <Compile Include="Gameplay\GoodyHutSubTypes.cs" />
+    <Compile Include="Gameplay\GoodyHutSubTypes_XP2.cs" />
+    <Compile Include="Gameplay\Gossips.cs" />
+    <Compile Include="Gameplay\GovernmentBonusNames.cs" />
+    <Compile Include="Gameplay\GovernmentModifiers.cs" />
+    <Compile Include="Gameplay\Governments.cs" />
+    <Compile Include="Gameplay\GovernmentSlots.cs" />
+    <Compile Include="Gameplay\Governments_XP2.cs" />
+    <Compile Include="Gameplay\GovernmentTiers.cs" />
+    <Compile Include="Gameplay\Government_SlotCounts.cs" />
+    <Compile Include="Gameplay\GovernorModifiers.cs" />
+    <Compile Include="Gameplay\GovernorPromotionModifiers.cs" />
+    <Compile Include="Gameplay\GovernorPromotions.cs" />
+    <Compile Include="Gameplay\Governors.cs" />
+    <Compile Include="Gameplay\Governors_XP2.cs" />
+    <Compile Include="Gameplay\GreatPersonClasses.cs" />
+    <Compile Include="Gameplay\GreatPersonIndividualActionModifiers.cs" />
+    <Compile Include="Gameplay\GreatPersonIndividualBirthModifiers.cs" />
+    <Compile Include="Gameplay\GreatPersonIndividualIconModifiers.cs" />
+    <Compile Include="Gameplay\GreatPersonIndividuals.cs" />
+    <Compile Include="Gameplay\GreatWorkObjectTypes.cs" />
+    <Compile Include="Gameplay\GreatWorks.cs" />
+    <Compile Include="Gameplay\GreatWorkSlotTypes.cs" />
+    <Compile Include="Gameplay\GreatWork_YieldChanges.cs" />
+    <Compile Include="Gameplay\Happinesses.cs" />
+    <Compile Include="Gameplay\Happinesses_XP1.cs" />
+    <Compile Include="Gameplay\HistoricRankings.cs" />
+    <Compile Include="Gameplay\ImprovementModifiers.cs" />
+    <Compile Include="Gameplay\Improvements.cs" />
+    <Compile Include="Gameplay\Improvements_XP2.cs" />
+    <Compile Include="Gameplay\Improvement_BonusYieldChanges.cs" />
+    <Compile Include="Gameplay\Improvement_Tourism.cs" />
+    <Compile Include="Gameplay\Improvement_ValidResources.cs" />
+    <Compile Include="Gameplay\Improvement_ValidTerrains.cs" />
+    <Compile Include="Gameplay\Improvement_YieldChanges.cs" />
+    <Compile Include="Gameplay\InterfaceModes.cs" />
+    <Compile Include="Gameplay\Kinds.cs" />
+    <Compile Include="Gameplay\LeaderAnimations.cs" />
+    <Compile Include="Gameplay\LeaderInfo.cs" />
+    <Compile Include="Gameplay\LeaderQuotes.cs" />
+    <Compile Include="Gameplay\Leaders.cs" />
+    <Compile Include="Gameplay\Leaders_XP2.cs" />
+    <Compile Include="Gameplay\LoadingInfo.cs" />
+    <Compile Include="Gameplay\LoyaltyLevels.cs" />
+    <Compile Include="Gameplay\MajorStartingUnits.cs" />
+    <Compile Include="Gameplay\MapRainfalls.cs" />
+    <Compile Include="Gameplay\MapResourceDistributions.cs" />
+    <Compile Include="Gameplay\Maps.cs" />
+    <Compile Include="Gameplay\MapSeaLevels.cs" />
+    <Compile Include="Gameplay\MapStartPositions.cs" />
+    <Compile Include="Gameplay\Maps_XP2.cs" />
+    <Compile Include="Gameplay\MapTemperatures.cs" />
+    <Compile Include="Gameplay\MapWorldAges.cs" />
+    <Compile Include="Gameplay\Map_GreatPersonClasses.cs" />
+    <Compile Include="Gameplay\MinorCivBonuses.cs" />
+    <Compile Include="Gameplay\ModifierArguments.cs" />
+    <Compile Include="Gameplay\Modifiers.cs" />
+    <Compile Include="Gameplay\ModifierStrings.cs" />
+    <Compile Include="Gameplay\MomentDataTypes.cs" />
+    <Compile Include="Gameplay\MomentIllustrations.cs" />
+    <Compile Include="Gameplay\MomentIllustrationTypes.cs" />
+    <Compile Include="Gameplay\Moments.cs" />
+    <Compile Include="Gameplay\Months.cs" />
+    <Compile Include="Gameplay\NamedDeserts.cs" />
+    <Compile Include="Gameplay\NamedMountains.cs" />
+    <Compile Include="Gameplay\NamedRivers.cs" />
+    <Compile Include="Gameplay\NamedVolcanoes.cs" />
+    <Compile Include="Gameplay\NavigationProperties.cs" />
+    <Compile Include="Gameplay\NodeDataDefinitions.cs" />
+    <Compile Include="Gameplay\NodeDefinitions.cs" />
+    <Compile Include="Gameplay\Notifications.cs" />
+    <Compile Include="Gameplay\ObsoletePolicies.cs" />
+    <Compile Include="Gameplay\OpTeamRequirements.cs" />
+    <Compile Include="Gameplay\PlayerColors.cs" />
+    <Compile Include="Gameplay\PlotEvalConditions.cs" />
+    <Compile Include="Gameplay\Policies.cs" />
+    <Compile Include="Gameplay\Policies_XP1.cs" />
+    <Compile Include="Gameplay\PolicyModifiers.cs" />
+    <Compile Include="Gameplay\PrevailingWinds.cs" />
+    <Compile Include="Gameplay\ProjectCompletionModifiers.cs" />
+    <Compile Include="Gameplay\ProjectPrereqs.cs" />
+    <Compile Include="Gameplay\Projects.cs" />
+    <Compile Include="Gameplay\Projects_XP1.cs" />
+    <Compile Include="Gameplay\Projects_XP2.cs" />
+    <Compile Include="Gameplay\Project_BuildingCosts.cs" />
+    <Compile Include="Gameplay\Project_GreatPersonPoints.cs" />
+    <Compile Include="Gameplay\Project_ResourceCosts.cs" />
+    <Compile Include="Gameplay\Project_YieldConversions.cs" />
+    <Compile Include="Gameplay\ProposalBlockers.cs" />
+    <Compile Include="Gameplay\ProposalTypes.cs" />
+    <Compile Include="Gameplay\PseudoYields.cs" />
+    <Compile Include="Gameplay\Quests.cs" />
+    <Compile Include="Gameplay\RandomAgendas.cs" />
+    <Compile Include="Gameplay\RandomAgendasForCivic.cs" />
+    <Compile Include="Gameplay\RandomAgendasInEra.cs" />
+    <Compile Include="Gameplay\RandomAgendas_XP2.cs" />
+    <Compile Include="Gameplay\RandomEvents.cs" />
+    <Compile Include="Gameplay\RandomEvent_Damages.cs" />
+    <Compile Include="Gameplay\RandomEvent_Frequencies.cs" />
+    <Compile Include="Gameplay\RandomEvent_Yields.cs" />
+    <Compile Include="Gameplay\RealismSettings.cs" />
+    <Compile Include="Gameplay\Religions.cs" />
+    <Compile Include="Gameplay\RequirementArguments.cs" />
+    <Compile Include="Gameplay\Requirements.cs" />
+    <Compile Include="Gameplay\RequirementSets.cs" />
+    <Compile Include="Gameplay\RequirementStrings.cs" />
+    <Compile Include="Gameplay\ResolutionEffects.cs" />
+    <Compile Include="Gameplay\Resolutions.cs" />
+    <Compile Include="Gameplay\Resources.cs" />
+    <Compile Include="Gameplay\Resource_Consumption.cs" />
+    <Compile Include="Gameplay\Resource_Distribution.cs" />
+    <Compile Include="Gameplay\Resource_Harvests.cs" />
+    <Compile Include="Gameplay\Resource_SeaLuxuries.cs" />
+    <Compile Include="Gameplay\Resource_SeaStrategics.cs" />
+    <Compile Include="Gameplay\Resource_TradeRouteYields.cs" />
+    <Compile Include="Gameplay\Resource_YieldChanges.cs" />
+    <Compile Include="Gameplay\Routes.cs" />
+    <Compile Include="Gameplay\Routes_XP2.cs" />
+    <Compile Include="Gameplay\Route_ResourceCosts.cs" />
+    <Compile Include="Gameplay\SavingTypes.cs" />
+    <Compile Include="Gameplay\ScoringCategories.cs" />
+    <Compile Include="Gameplay\ScoringLineItems.cs" />
+    <Compile Include="Gameplay\Seasons.cs" />
+    <Compile Include="Gameplay\SettlementPreferences.cs" />
+    <Compile Include="Gameplay\ShapeDefinitions.cs" />
+    <Compile Include="Gameplay\StartBiasFeatures.cs" />
+    <Compile Include="Gameplay\StartBiasResources.cs" />
+    <Compile Include="Gameplay\StartBiasRivers.cs" />
+    <Compile Include="Gameplay\StartBiasTerrains.cs" />
+    <Compile Include="Gameplay\StartEras.cs" />
+    <Compile Include="Gameplay\StartEras_XP2.cs" />
+    <Compile Include="Gameplay\StartingBuildings.cs" />
+    <Compile Include="Gameplay\StartingGovernments.cs" />
+    <Compile Include="Gameplay\Strategies.cs" />
+    <Compile Include="Gameplay\StrategyConditions.cs" />
+    <Compile Include="Gameplay\Strategy_YieldPriorities.cs" />
+    <Compile Include="Gameplay\Tags.cs" />
+    <Compile Include="Gameplay\TargetTypes.cs" />
+    <Compile Include="Gameplay\Technologies.cs" />
+    <Compile Include="Gameplay\Technologies_XP2.cs" />
+    <Compile Include="Gameplay\TechnologyModifiers.cs" />
+    <Compile Include="Gameplay\TechnologyQuotes.cs" />
+    <Compile Include="Gameplay\TechnologyRandomCosts.cs" />
+    <Compile Include="Gameplay\TerrainClasses.cs" />
+    <Compile Include="Gameplay\Terrains.cs" />
+    <Compile Include="Gameplay\Terrain_YieldChanges.cs" />
+    <Compile Include="Gameplay\Traits.cs" />
+    <Compile Include="Gameplay\TreeData.cs" />
+    <Compile Include="Gameplay\TriggeredBehaviorTrees.cs" />
+    <Compile Include="Gameplay\TurnPhases.cs" />
+    <Compile Include="Gameplay\TurnSegments.cs" />
+    <Compile Include="Gameplay\TurnTimers.cs" />
+    <Compile Include="Gameplay\TypeProperties.cs" />
+    <Compile Include="Gameplay\Types.cs" />
+    <Compile Include="Gameplay\UnitAbilities.cs" />
+    <Compile Include="Gameplay\UnitAiTypes.cs" />
+    <Compile Include="Gameplay\UnitCommands.cs" />
+    <Compile Include="Gameplay\UnitFormationClasses.cs" />
+    <Compile Include="Gameplay\UnitNames.cs" />
+    <Compile Include="Gameplay\UnitOperations.cs" />
+    <Compile Include="Gameplay\UnitPromotionClasses.cs" />
+    <Compile Include="Gameplay\UnitPromotionModifiers.cs" />
+    <Compile Include="Gameplay\UnitPromotions.cs" />
+    <Compile Include="Gameplay\Units.cs" />
+    <Compile Include="Gameplay\Units_XP2.cs" />
+    <Compile Include="Gameplay\Unit_BuildingPrereqs.cs" />
+    <Compile Include="Gameplay\Unit_RebellionTags.cs" />
+    <Compile Include="Gameplay\Unit_RockbandResults_XP2.cs" />
+    <Compile Include="Gameplay\Victories.cs" />
+    <Compile Include="Gameplay\Visibilities.cs" />
+    <Compile Include="Gameplay\Visibilities_XP2.cs" />
+    <Compile Include="Gameplay\Vocabularies.cs" />
+    <Compile Include="Gameplay\VotingBlockers.cs" />
+    <Compile Include="Gameplay\Wars.cs" />
+    <Compile Include="Gameplay\WMDs.cs" />
+    <Compile Include="Gameplay\Yields.cs" />
+    <Compile Include="Localization\AudioLanguages.cs" />
+    <Compile Include="Localization\BaseGameText.cs" />
+    <Compile Include="Localization\DefaultAudioLanguages.cs" />
+    <Compile Include="Localization\EnglishText.cs" />
+    <Compile Include="Localization\FontStyleSheets.cs" />
+    <Compile Include="Localization\FrontEndText.cs" />
+    <Compile Include="Localization\LanguagePriorities.cs" />
+    <Compile Include="Localization\Languages.cs" />
+    <Compile Include="Localization\LocalizedText.cs" />
+    <Compile Include="Localization\SteamLanguages.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDatabaseSelector.resx">
+      <DependentUpon>frmDatabaseSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFindReferences.resx">
+      <DependentUpon>frmFindReferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOutputSQL.resx">
+      <DependentUpon>frmOutputSQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLHelper.resx">
+      <DependentUpon>SQLHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="COPYING">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddRow_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RemoveRow_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FindinFiles_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="README.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="LICENSE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\SearchMember_16x.png" />
+    <None Include="Resources\FilterWithCheck.png" />
+    <None Include="Resources\Filter.png" />
+    <None Include="Resources\gplv3-88x31.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLite.3.13.0\build\net45\SQLite.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLite.3.13.0\build\net45\SQLite.props'))" />
+  </Target>
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets')" />
+</Project>

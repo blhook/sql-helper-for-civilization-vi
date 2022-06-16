@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SQLHelper_Civ.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ReferenceSuggest" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ColumnSuggest" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ReferenceForce" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CrossContext" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DefaultLanguage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">en_US</Value>
+    </Setting>
+    <Setting Name="ConfigurationPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Document\My Games\Sid Meier's Civilization VI\Cache\DebugConfiguration.sqlite</Value>
+    </Setting>
+    <Setting Name="LocalizationPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Document\My Games\Sid Meier's Civilization VI\Cache\DebugLocalization.sqlite</Value>
+    </Setting>
+    <Setting Name="GameplayPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Document\My Games\Sid Meier's Civilization VI\Cache\DebugGameplay.sqlite</Value>
+    </Setting>
+    <Setting Name="InsertMethod" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
