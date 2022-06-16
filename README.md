@@ -30,11 +30,11 @@ Once the table looks like what you want, press the Save, and it'll generate the 
 
 ## Changelog
 * 1.1.0: 05/05/2019 -- 
- * Added new Insert methods.
- * Cleaned up some issues where tables would sometimes disallow saving erroneously. 
- * Added "Referenced From" and "References" selectors for accessing the Foreign Keys easier.
- * All Columns in the main search now have the ability to be filtered down (the icon next to the column header).
- * Misc. Cleanup and optimizing. 
+  * Added new Insert methods.
+  * Cleaned up some issues where tables would sometimes disallow saving erroneously. 
+  * Added "Referenced From" and "References" selectors for accessing the Foreign Keys easier.
+  * All Columns in the main search now have the ability to be filtered down (the icon next to the column header).
+  * Misc. Cleanup and optimizing. 
 * 1.0.0: 03/21/2019 -- Initial Release
 
 ## Limitations
